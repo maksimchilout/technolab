@@ -2,8 +2,6 @@ import { useState } from 'react';
 import { Layout } from '@/components/Layout';
 import { FAQ } from '@/components/FAQ';
 import { CTASection } from '@/components/CTASection';
-import { Button } from '@/components/ui/button';
-import { ExternalLink, ArrowRight } from 'lucide-react';
 
 const categories = [
   { id: 'all', name: 'Все проекты' },
@@ -22,7 +20,6 @@ const projects = [
     task: 'Создать современный интернет-магазин эко-товаров',
     solution: 'Разработали каталог с фильтрами, корзину, интеграцию с платёжной системой',
     results: ['+180% конверсия', '+250% трафик'],
-    link: '#',
   },
   {
     id: 2,
@@ -32,7 +29,6 @@ const projects = [
     task: 'Корпоративный сайт для финансовой консалтинговой компании',
     solution: 'Современный дизайн, калькуляторы услуг, форма консультации',
     results: ['+120% заявок', '-40% отказов'],
-    link: '#',
   },
   {
     id: 3,
@@ -42,7 +38,6 @@ const projects = [
     task: 'Лендинг для фитнес-студии с онлайн-записью',
     solution: 'Продающий лендинг с видео, отзывами и формой записи',
     results: ['300+ заявок/мес', '12% конверсия'],
-    link: '#',
   },
   {
     id: 4,
@@ -52,7 +47,6 @@ const projects = [
     task: 'Telegram-бот для логистической компании',
     solution: 'Бот для отслеживания заказов, уведомлений и поддержки клиентов',
     results: ['-60% нагрузки на call-центр', '5000+ пользователей'],
-    link: '#',
   },
   {
     id: 5,
@@ -62,7 +56,6 @@ const projects = [
     task: 'Интернет-магазин электроники с интеграцией 1C',
     solution: 'Каталог 10000+ товаров, синхронизация остатков, личный кабинет',
     results: ['+300% онлайн-продаж', 'Автоматизация склада'],
-    link: '#',
   },
   {
     id: 6,
@@ -72,7 +65,87 @@ const projects = [
     task: 'Сайт медицинской клиники с онлайн-записью',
     solution: 'Информационный портал, расписание врачей, личный кабинет пациента',
     results: ['+200% онлайн-записей', 'NPS 92%'],
-    link: '#',
+  },
+  {
+    id: 7,
+    title: 'AutoParts24',
+    category: 'ecommerce',
+    image: 'https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?w=800&h=600&fit=crop',
+    task: 'Интернет-магазин автозапчастей с VIN-подбором',
+    solution: 'Поиск по VIN, интеграция с поставщиками, онлайн-заказ',
+    results: ['+400% заказов', '50000+ товаров'],
+  },
+  {
+    id: 8,
+    title: 'LegalPro',
+    category: 'corporate',
+    image: 'https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=800&h=600&fit=crop',
+    task: 'Сайт для юридической компании',
+    solution: 'Презентация услуг, онлайн-консультация, база знаний',
+    results: ['+150% обращений', 'Автоматизация заявок'],
+  },
+  {
+    id: 9,
+    title: 'BeautyStudio',
+    category: 'landing',
+    image: 'https://images.unsplash.com/photo-1560066984-138dadb4c035?w=800&h=600&fit=crop',
+    task: 'Лендинг для салона красоты премиум-класса',
+    solution: 'Элегантный дизайн, онлайн-запись, галерея работ',
+    results: ['250+ записей/мес', '15% конверсия'],
+  },
+  {
+    id: 10,
+    title: 'HRAssistant',
+    category: 'automation',
+    image: 'https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=800&h=600&fit=crop',
+    task: 'Бот-ассистент для HR-отдела',
+    solution: 'Автоматизация найма, скрининг резюме, планирование интервью',
+    results: ['-70% времени на рутину', '200+ наймов'],
+  },
+  {
+    id: 11,
+    title: 'FoodDelivery',
+    category: 'ecommerce',
+    image: 'https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=800&h=600&fit=crop',
+    task: 'Платформа доставки еды для сети ресторанов',
+    solution: 'Мобильная версия, отслеживание заказа, программа лояльности',
+    results: ['+500% онлайн-заказов', '10000+ клиентов'],
+  },
+  {
+    id: 12,
+    title: 'RealEstate',
+    category: 'corporate',
+    image: 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=800&h=600&fit=crop',
+    task: 'Сайт агентства недвижимости',
+    solution: 'Каталог объектов, фильтры, карта, калькулятор ипотеки',
+    results: ['+180% лидов', 'Интеграция с CRM'],
+  },
+  {
+    id: 13,
+    title: 'EventPro',
+    category: 'landing',
+    image: 'https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=800&h=600&fit=crop',
+    task: 'Лендинг для event-агентства',
+    solution: 'Портфолио мероприятий, калькулятор стоимости, форма заявки',
+    results: ['400+ заявок/мес', '18% конверсия'],
+  },
+  {
+    id: 14,
+    title: 'CRMBot',
+    category: 'automation',
+    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=600&fit=crop',
+    task: 'Интеграция CRM с мессенджерами',
+    solution: 'Автоматические уведомления, синхронизация данных, отчёты',
+    results: ['+40% продуктивности', 'Экономия 20ч/нед'],
+  },
+  {
+    id: 15,
+    title: 'TravelAgency',
+    category: 'ecommerce',
+    image: 'https://images.unsplash.com/photo-1488646953014-85cb44e25828?w=800&h=600&fit=crop',
+    task: 'Онлайн-платформа для туристического агентства',
+    solution: 'Поиск туров, бронирование, личный кабинет, отзывы',
+    results: ['+350% бронирований', 'Автоматизация продаж'],
   },
 ];
 
@@ -176,16 +249,6 @@ const Portfolio = () => {
                         </span>
                       ))}
                     </div>
-                  </div>
-
-                  <div className="flex gap-3">
-                    <Button size="sm" variant="outline" className="flex-1">
-                      Подробнее
-                      <ArrowRight className="ml-2 w-3 h-3" />
-                    </Button>
-                    <Button size="sm" className="btn-glow">
-                      <ExternalLink className="w-4 h-4" />
-                    </Button>
                   </div>
                 </div>
               </div>

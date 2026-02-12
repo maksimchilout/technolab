@@ -1,8 +1,8 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
 
 @layer base {
   :root {
@@ -46,7 +46,7 @@
     --glass-bg: 217 33% 100% / 0.05;
     --glass-border: 217 33% 100% / 0.1;
     --glass-highlight: 217 33% 100% / 0.15;
-    
+
     /* Glow effects */
     --glow-primary: 191 91% 43% / 0.4;
     --glow-soft: 191 91% 43% / 0.15;
@@ -74,7 +74,7 @@
 
   body {
     @apply bg-background text-foreground font-sans antialiased;
-    font-family: 'Inter', sans-serif;
+    font-family: "Inter", sans-serif;
   }
 }
 
@@ -93,7 +93,7 @@
   }
 
   .glass-card::before {
-    content: '';
+    content: "";
     position: absolute;
     top: 0;
     left: 0;
@@ -111,13 +111,12 @@
   .btn-glow {
     @apply relative overflow-hidden;
     box-shadow: 0 0 20px hsl(var(--glow-soft)),
-                inset 0 1px 0 hsl(217 33% 100% / 0.1);
+      inset 0 1px 0 hsl(217 33% 100% / 0.1);
   }
 
   .btn-glow:hover {
     box-shadow: 0 0 30px hsl(var(--glow-primary)),
-                0 0 60px hsl(var(--glow-soft)),
-                inset 0 1px 0 hsl(217 33% 100% / 0.15);
+      0 0 60px hsl(var(--glow-soft)), inset 0 1px 0 hsl(217 33% 100% / 0.15);
   }
 
   /* Text gradient */
@@ -148,17 +147,14 @@
   /* Floating card with depth */
   .floating-card {
     @apply glass-card transition-all duration-500 ease-out;
-    box-shadow: 
-      0 4px 24px -4px hsl(222 47% 0% / 0.5),
+    box-shadow: 0 4px 24px -4px hsl(222 47% 0% / 0.5),
       0 12px 48px -8px hsl(222 47% 0% / 0.3);
   }
 
   .floating-card:hover {
     transform: translateY(-4px);
-    box-shadow: 
-      0 8px 32px -4px hsl(222 47% 0% / 0.6),
-      0 24px 64px -8px hsl(222 47% 0% / 0.4),
-      0 0 40px hsl(var(--glow-soft));
+    box-shadow: 0 8px 32px -4px hsl(222 47% 0% / 0.6),
+      0 24px 64px -8px hsl(222 47% 0% / 0.4), 0 0 40px hsl(var(--glow-soft));
   }
 
   /* Stat card */
@@ -177,7 +173,7 @@
   }
 
   .nav-link::after {
-    content: '';
+    content: "";
     @apply absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300;
   }
 
@@ -248,8 +244,11 @@
   /* Mesh gradient background */
   .bg-mesh {
     background-color: hsl(222 47% 4%);
-    background-image: 
-      radial-gradient(at 40% 20%, hsl(217 33% 10%) 0px, transparent 50%),
+    background-image: radial-gradient(
+        at 40% 20%,
+        hsl(217 33% 10%) 0px,
+        transparent 50%
+      ),
       radial-gradient(at 80% 0%, hsl(191 91% 15% / 0.3) 0px, transparent 50%),
       radial-gradient(at 0% 50%, hsl(217 33% 10%) 0px, transparent 50%),
       radial-gradient(at 80% 50%, hsl(191 91% 10% / 0.2) 0px, transparent 50%),
@@ -278,7 +277,8 @@
 }
 
 @keyframes glowPulse {
-  0%, 100% {
+  0%,
+  100% {
     box-shadow: 0 0 20px hsl(var(--glow-soft));
   }
   50% {
@@ -287,7 +287,8 @@
 }
 
 @keyframes float {
-  0%, 100% {
+  0%,
+  100% {
     transform: translateY(0);
   }
   50% {

@@ -33,9 +33,14 @@ const faqItems = [
   },
 ];
 
-export const FAQ = () => {
+interface FAQProps {
+  /** Меньшие вертикальные отступы (для страницы услуг и т.п.) */
+  compact?: boolean;
+}
+
+export const FAQ = ({ compact }: FAQProps) => {
   return (
-    <section className="section-padding">
+    <section className={compact ? 'pt-10 pb-4 md:pt-12 md:pb-5' : 'pt-10 pb-6 md:pt-12 md:pb-8'}>
       <div className="container-custom">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
@@ -46,7 +51,7 @@ export const FAQ = () => {
           </p>
         </div>
 
-        <div className="max-w-3xl mx-auto">
+        <div className="max-w-3xl mx-auto h-[32rem] overflow-y-auto overflow-x-hidden">
           <Accordion type="single" collapsible className="space-y-4">
             {faqItems.map((item, index) => (
               <AccordionItem

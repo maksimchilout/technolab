@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { ArrowRight } from 'lucide-react';
 
@@ -7,6 +7,10 @@ interface CTASectionProps {
   description?: string;
   buttonText?: string;
   buttonLink?: string;
+  /** Меньшие вертикальные отступы (для страниц услуг и т.п.) */
+  compact?: boolean;
+  /** Меньший верхний отступ (например, когда блок идёт сразу после FAQ на главной) */
+  compactTop?: boolean;
 }
 
 export const CTASection = ({
@@ -14,9 +18,16 @@ export const CTASection = ({
   description = 'Оставьте заявку, и мы свяжемся с вами для обсуждения деталей',
   buttonText = 'Заказать консультацию',
   buttonLink = '/contacts',
+  compact = false,
+  compactTop = false,
 }: CTASectionProps) => {
+  const sectionClass = compact
+    ? 'py-8 md:py-10'
+    : compactTop
+      ? 'pt-8 md:pt-10 pb-20 md:pb-28 lg:pb-32'
+      : 'section-padding';
   return (
-    <section className="section-padding">
+    <section className={sectionClass}>
       <div className="container-custom">
         <div className="glass-card p-8 md:p-12 lg:p-16 text-center relative overflow-hidden">
           {/* Glow effect */}
@@ -30,7 +41,7 @@ export const CTASection = ({
               {description}
             </p>
             <Button size="lg" className="btn-glow group" asChild>
-              <Link to={buttonLink}>
+              <Link href={buttonLink}>
                 {buttonText}
                 <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </Link>

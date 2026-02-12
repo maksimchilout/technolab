@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 import { Mail, Phone, Send } from 'lucide-react';
 
 const footerLinks = {
@@ -7,6 +7,7 @@ const footerLinks = {
     { name: 'Корпоративные сайты', href: '/services#corporate' },
     { name: 'Интернет-магазины', href: '/services#ecommerce' },
     { name: 'SEO-продвижение', href: '/services#seo' },
+    { name: 'Автоматизация и веб-приложения', href: '/services#automation' },
   ],
   company: [
     { name: 'О компании', href: '/#about' },
@@ -18,11 +19,11 @@ const footerLinks = {
 export const Footer = () => {
   return (
     <footer className="border-t border-border bg-gradient-radial">
-      <div className="container-custom section-padding">
+      <div className="container-custom py-10 md:py-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
           {/* Brand */}
           <div className="lg:col-span-1">
-            <Link to="/" className="flex items-center gap-2 mb-4">
+            <Link href="/" className="flex items-center gap-2 mb-4">
               <div className="w-10 h-10 rounded-lg bg-primary flex items-center justify-center">
                 <span className="text-primary-foreground font-bold text-lg">T</span>
               </div>
@@ -35,7 +36,7 @@ export const Footer = () => {
             </p>
             <div className="flex gap-4">
               <a
-                href="https://t.me/technolab_support"
+                href="https://t.me/chilbychil"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 rounded-lg glass-card flex items-center justify-center text-muted-foreground hover:text-primary transition-colors"
@@ -49,7 +50,7 @@ export const Footer = () => {
                 <Mail size={18} />
               </a>
               <a
-                href="tel:+7XXXXXXXXXX"
+                href="tel:+375336005365"
                 className="w-10 h-10 rounded-lg glass-card flex items-center justify-center text-muted-foreground hover:text-primary transition-colors"
               >
                 <Phone size={18} />
@@ -64,7 +65,7 @@ export const Footer = () => {
               {footerLinks.services.map((link) => (
                 <li key={link.name}>
                   <Link
-                    to={link.href}
+                    href={link.href}
                     className="text-sm text-muted-foreground hover:text-foreground transition-colors"
                   >
                     {link.name}
@@ -81,7 +82,7 @@ export const Footer = () => {
               {footerLinks.company.map((link) => (
                 <li key={link.name}>
                   <Link
-                    to={link.href}
+                    href={link.href}
                     className="text-sm text-muted-foreground hover:text-foreground transition-colors"
                   >
                     {link.name}
@@ -101,8 +102,8 @@ export const Footer = () => {
                 </a>
               </li>
               <li>
-                <a href="tel:+7XXXXXXXXXX" className="hover:text-foreground transition-colors">
-                  +7 (XXX) XXX-XX-XX
+                <a href="tel:+375336005365" className="hover:text-foreground transition-colors">
+                  +375 33 600 53 65
                 </a>
               </li>
               <li>Пн–Пт: 10:00–19:00</li>
@@ -111,15 +112,15 @@ export const Footer = () => {
         </div>
 
         {/* Bottom */}
-        <div className="mt-12 pt-8 border-t border-border flex flex-col md:flex-row justify-between items-center gap-4">
+        <div className="mt-8 pt-6 border-t border-border flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-sm text-muted-foreground">
             © 2026 TechnoLab. Все права защищены.
           </p>
           <div className="flex gap-6 text-sm text-muted-foreground">
-            <Link to="/privacy" className="hover:text-foreground transition-colors">
+            <a href="/privacy" className="hover:text-foreground transition-colors">
               Политика конфиденциальности
-            </Link>
-            <Link to="/offer" className="hover:text-foreground transition-colors">
+            </a>
+            <Link href="/offer" className="hover:text-foreground transition-colors">
               Оферта
             </Link>
           </div>
